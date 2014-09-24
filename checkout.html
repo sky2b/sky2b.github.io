@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pricer application">
+    <meta name="author" content="sky">
+
+    <title>Checkout</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+            <a class="navbar-brand" href="index.html">AddGears</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="download.html">Download</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <div class="container">
+
+        <div id="gold-plan" class="row hidden">
+            <div class="col-lg-12">
+                <h2 class="page-header">Donate</h2>
+                <p>
+                    This donation will be used to maintain and extend the functionality of the <i>AddGears Community Edition</i>.
+                    Through this contribution you become AddGears <b>Gold Member</b> and can enjoy access to some additional functionality
+                    for the period of <b id="period">1</b> <b>month(s)</b>.
+                    Please note that this donation is <b>NOT refundable</b>! To proceed, please agree with the
+                    <a href="terms.html">terms</a> of software usage. Thank you for your contribution!
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="selectPeriod">Gold Member contribution for the next</label>
+                        <select id="selectPeriod" class="form-control">
+                            <option value="1;10">1 month - (10$)</option>
+                            <option value="3;25">3 month - (25$)</option>
+                            <option value="12;90">12 month - (90$)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="confirm"> I agree with <a href="terms.html">the terms</a> of usage
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="button-glass" style="position: absolute; margin:0; opacity: 0.5; width:100%; height:100%; z-index: 1;
+                    opacity: 0.3; background: white; cursor: not-allowed;">
+                </div>
+                <span id="button"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+
+        <hr>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Fishbones Ltd 2013</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- JavaScript -->
+    <script src="js/latest-jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/modern-business.js"></script>
+
+<script src="https://www.paypalobjects.com/js/external/paypal-button.min.js"></script>
+<script src="./js/checkout.js"></script>
+
+</body>
+
+</html>

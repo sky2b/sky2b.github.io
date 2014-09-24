@@ -7,10 +7,10 @@
     <meta name="description" content="pricer application">
     <meta name="author" content="sky">
 
-    <title>GS Math - Easy Pricing</title>
+    <title>AddGears - Easy Pricing</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
     <link href="css/modern-business.css" rel="stylesheet">
@@ -28,18 +28,17 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-            <a class="navbar-brand" href="index.html">GS Math</a>
+            <a class="navbar-brand" href="index.html">AddGears</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="download.html">Download</a>
-                </li>
-                <li><a href="pricing.html">Pricing</a>
-                </li>
-                <li><a href="contacts.html">Contact</a>
-                </li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="contacts.html">Contact</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -50,43 +49,29 @@
 
     <div class="container" style="">
         <div id="myCarousel" class="carousel slide">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <a href="#"><img src="luna1.png"></a>
-                    <!--<div class="carousel-caption">-->
-                        <!--<h1>Modern Business - A Bootstrap 3 Template</h1>-->
-                    <!--</div>-->
+                    <a href="features.html#integration"><img src="one.jpg" class="center-block"></a>
                 </div>
                 <div class="item">
-                    <a href="#"><img src="luna2.png"></a>
-                    <!--<div class="carousel-caption">-->
-                        <!--<h1>Ready to Style &amp; Add Content</h1>-->
-                    <!--</div>-->
+                    <a href="features.html#tools"><img src="two.jpg" class="center-block"></a>
                 </div>
                 <div class="item">
-                    <a href="#"><img src="luna3.png"></a>
-                    <!--<div class="carousel-caption">-->
-                        <!--<h1>Additional Layout Options at <a href="http://startbootstrap.com">http://startbootstrap.com</a>-->
-                        <!--</h1>-->
-                    <!--</div>-->
+                    <a href="features.html#enterprise"><img src="three.jpg" class="center-block"></a>
                 </div>
             </div>
 
-            <!-- Controls -->
-            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                <img src="button-prev.png">
-            </a>
-            <a class="carousel-control right" href="#myCarousel" data-slide="next">›
-                <img src="button-next.png">
-            </a>
+            <div class="center-block" style="text-align: center;">
+                <a href="#myCarousel" data-slide="prev"><img src="button-prev.png"></a>
+                <ol class="carousel-indicators" style="position:inherit;margin:0;display:inline-block;width:inherit;">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <a href="#myCarousel" data-slide="next"><img src="button-next.png"></a>
+            </div>
         </div>
     </div>
 
@@ -96,21 +81,23 @@
 
             <div class="row">
                 <div class="col-lg-4 col-md-4">
-                    <h3><i class="fa fa-check-circle"></i> Easy integration</h3>
+                    <h3><i class="fa fa-check-circle"></i>Easy integration</h3>
                     <p>Easily import your data from any other application. Harvest missing data from internet.</p>
-                    <p><a class="btn" href="#">View details »</a></p>
+                    <p><a class="btn" href="features.html#integration">View details »</a></p>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <h3><i class="fa fa-wrench"></i> Intuitive tools</h3>
-                    <p>Simple and convenient tools to help you visualise repricing. Charts and grids to visualise and
-                        control your data consistency.</p>
-                    <p><a class="btn" href="#">View details »</a></p>
+                    <h3><i class="fa fa-wrench"></i>Efficient tools</h3>
+                    <p>Simple and convenient visual tools and scripting for business automation and data processing.
+                        Charts and grids to visualise and control your data consistency.</p>
+                    <p><a class="btn" href="features.html#tools">View details »</a></p>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <h3><i class="fa fa-gears"></i> Customization</h3>
-                    <p>Built using modern technologies, our software is easy to extend and maintain. <i>Enterprise<\i>
-                        support and customisation.</p>
-                    <p><a class="btn" href="#">View details »</a></p>
+                    <h3><i class="fa fa-gears"></i>Enterprise version</h3>
+                    <p>
+                        Built using modern technologies, our software is easy to extend and maintain. <i>Enterprise</i>
+                        support and customisation.
+                    </p>
+                    <p><a class="btn" href="features.html#enterprise">View details »</a></p>
                 </div>
             </div>
             <!-- /.row -->
@@ -137,7 +124,7 @@
     <!-- /.container -->
 
     <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/latest-jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/modern-business.js"></script>
 

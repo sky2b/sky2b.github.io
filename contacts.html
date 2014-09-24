@@ -10,7 +10,7 @@
     <title>Contacts</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
     <link href="css/modern-business.css" rel="stylesheet">
@@ -28,18 +28,17 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-            <a class="navbar-brand" href="index.html">GS Math</a>
+            <a class="navbar-brand" href="index.html">AddGears</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="download.html">Download</a>
-                </li>
-                <li><a href="pricing.html">Pricing</a>
-                </li>
-                <li><a href="contacts.html">Contact</a>
-                </li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="contacts.html">Contact</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -62,19 +61,68 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Contact us</h2>
-                <p>Thank you for your interest in GMath. If you have questions about our company or services do not hesitate
-                    to write us at:
-                    <script language=javascript>
-                        <!--
-                        var email = "gmath";
-                        var emailHost = "google.com";
-                        var contact = email + "&#64;" + emailHost;
-                        document.write("<a href=" + "mail" + "to:" + email + "&#64;" + emailHost+ ">" + contact + "</a>" + ".")
-                        //-->
-                    </script>
-                </p>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Our regular users are encouraged to use <a href="https://trello.com/b/PA28cFuT/gears">Trello discussion board</a> to report issues, discuss and shear ideas or to propose new
+                            feature. Thank you for your interest in AddGears.</p>
+                    </div>
+                </div>
+
+                <form role="form" id="contact-form">
+                    <div id="message-error" class="alert alert-danger fade">
+                        <a href="#" class="close">&times;</a>
+                        <strong>Error!</strong> A problem has been occurred while submitting your data.
+                    </div>
+                    <div id="message-success" class="alert alert-success fade hide">
+                        <a href="#" class="close">&times;</a>
+                        <strong>Success!</strong> Your message has been sent successfully.
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input class="form-control" id="inputName" placeholder="Your name" name="name" data-validation-engine="validate[required]" >
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Email address</label>
+                        <input class="form-control" id="inputEmail" data-validation-engine="validate[required,custom[email]]" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="selectSubject">Subject</label>
+                        <select id="selectSubject" class="form-control" name="subject"  data-validation-engine="validate[required]">
+                            <option></option>
+                            <option>bug report</option>
+                            <option>enterprise version</option>
+                            <option>feature request</option>
+                            <option>payment</option>
+                            <option>other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMessage">Message</label>
+                        <textarea class="form-control" id="inputMessage" rows="5" placeholder="Your message" name="message" data-validation-engine="validate[required]"></textarea>
+                    </div>
+                    <a class="btn btn-default has-spinner" href="#">
+                        <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span>
+                        Submit
+                    </a>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <h2 class="page-header">Email</h2>
+                <div class="row">
+                    <div class="col-lg-4">support:</div>
+                    <div class="col-lg-8">
+                        <script language=javascript>
+                            <!--
+                            var email = "fishbones2b";
+                            var emailHost = "google.com";
+                            var contact = email + "&#64;" + emailHost;
+                            document.write("<a href=" + "mail" + "to:" + email + "&#64;" + emailHost+ ">" + contact + "</a>")
+                            //-->
+                        </script>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -95,10 +143,14 @@
     <!-- /.container -->
 
     <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/latest-jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/modern-business.js"></script>
 
+<link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
+<script src="./js/jquery.validationEngine-en.js"></script>
+<script src="./js/jquery.validationEngine.js"></script>
+<script src="./js/contact.js"></script>
 </body>
 
 </html>

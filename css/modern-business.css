@@ -13,6 +13,7 @@ html, body {
 }
 
 body {
+  position: relative;
   padding-top: 50px;
  /* body padding for fixed top nav */
 }
@@ -129,4 +130,122 @@ footer {
     height: 70%;
  /* increases the carousel height so it looks good on phones */
   }
+}
+
+.spinner {
+    display: inline-block;
+    opacity: 0;
+    max-width: 0;
+
+    -webkit-transition: opacity 0.25s, max-width 0.45s;
+    -moz-transition: opacity 0.25s, max-width 0.45s;
+    -o-transition: opacity 0.25s, max-width 0.45s;
+    transition: opacity 0.25s, max-width 0.45s; /* Duration fixed since we animate additional hidden width */
+}
+
+.has-spinner.active {
+    cursor:progress;
+}
+
+.has-spinner.active .spinner {
+    opacity: 1;
+    max-width: 50px; /* More than it will ever come, notice that this affects on animation duration */
+}
+
+/* ============= Carusel ====================*/
+.carousel-indicators li{
+border-color: #3CD8DF;
+}
+.carousel-indicators li.active{
+    background-color: #3CD8DF;
+}
+/* ============= SIDE NAV BAR ====================*/
+/* sidebar */
+.bs-docs-sidebar {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.bs-docs-sidebar > ul{
+    width: 180px;
+    overflow-y: auto;
+    height: 100%;
+}
+
+/* all links */
+.bs-docs-sidebar .nav>li>a {
+    color: #999;
+    border-left: 2px solid transparent;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* nested links */
+.bs-docs-sidebar .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+/* active & hover links */
+.bs-docs-sidebar .nav>.active>a,
+.bs-docs-sidebar .nav>li>a:hover,
+.bs-docs-sidebar .nav>li>a:focus {
+    color: #563d7c;
+    text-decoration: none;
+    background-color: transparent;
+    border-left-color: #563d7c;
+}
+/* all active links */
+.bs-docs-sidebar .nav>.active>a,
+.bs-docs-sidebar .nav>.active:hover>a,
+.bs-docs-sidebar .nav>.active:focus>a {
+    font-weight: 700;
+}
+/* nested active links */
+.bs-docs-sidebar .nav .nav>.active>a,
+.bs-docs-sidebar .nav .nav>.active:hover>a,
+.bs-docs-sidebar .nav .nav>.active:focus>a {
+    font-weight: 500;
+}
+
+/* hide inactive nested list */
+.bs-docs-sidebar .nav ul.nav {
+    display: none;
+}
+/* show active nested list */
+.bs-docs-sidebar .nav>.active>ul.nav {
+    display: block;
+}
+
+/* ============= back to top ====================*/
+.back-to-top:hover {
+    color: #563d7c;
+    text-decoration: none;
+}
+
+.back-to-top {
+    display: none;
+    padding: 4px 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #999;
+}
+
+@media (min-width: 768px) {
+    .back-to-top {
+        display: block;
+    }
+}
+
+hr.spacer-10 {
+    border: 0;
+    clear: both;
+    height:10px;
+    margin:0;
 }
