@@ -7,7 +7,7 @@
     <meta name="description" content="pricer application">
     <meta name="author" content="sky">
 
-    <title>Download</title>
+    <title>Installation.</title>
 
     <script src="https://use.fontawesome.com/818d94916d.js"></script>
 
@@ -55,15 +55,41 @@
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.3.0/styles/default.min.css">
 <div class="section"><div class="container">
-<h1>Download</h1>
+<h1>Installation</h1>
 
-<p>Select your OS installer. For more details look <a href="installation.html">installation instructions</a>.</p>
+<p><a href="download.html">Download</a> an installation package for your operating system.
+For Linux and Mac it comes as a tar archive containing <em>addgears</em> executable and
+example projects. Windows installer adds application directory to the <em>PATH</em>
+variable making <em>addgears</em> available anywhere at the command prompt. It also
+creates a desktop shortcut (which opens the
+command prompt in <em>projects</em> directory) and adds shortcuts in the Start
+menu (including the one which opens the projects directory in Explorer).</p>
 
-<ul>
-<li>Windows</li>
-<li>Linux</li>
-<li>Mac<br /></li>
-</ul>
+<p>After the installation is finished test it. At the command prompt type:</p>
+
+<pre><code class="language-bash">addgears -h
+
+-config string
+      makefile name (default &quot;xmake.yaml&quot;)
+-run string
+      task to run (default &quot;default&quot;)
+</code></pre>
+
+<p>As you can see, although, technically, <em>AddGears</em> is a command line application,
+there are only two options available. One is to specify a configuration file and
+another - task(s) to execute. The application actually is mainly
+controlled through configuration files. To work with these configuration files
+you may wish to install some editor, for example open source <a href="https://atom.io/">Atom</a>.
+As always when working with textual files,
+it is advisable to use some version control system, for example <em>git</em>, optionally
+with some GUI client, for example, with
+free <a href="https://www.sourcetreeapp.com/">SourceTree for Windows/Mac </a>.
+On Windows you may wish to install nicer
+console instead of standard command prompt, for example <a href="http://cmder.net/">cmder</a>
+with tabbed interface and better clipboard support. Also feel free to copy example
+configuration files
+in your working directory - as long as <em>addgears</em> is present in your <em>PATH</em> you
+may work in any directory you like.</p>
 
 </div></div>
 <script src="//cdn.jsdelivr.net/highlight.js/9.3.0/highlight.min.js"></script>

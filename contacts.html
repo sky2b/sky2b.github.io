@@ -1,21 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="pricer application">
     <meta name="author" content="sky">
 
-    <title>Contacts</title>
+    <title>AddPricer contacts. Bugs, additional support, enterprise customers.</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/818d94916d.js"></script>
 
-    <!-- Add custom CSS here -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <link href="css/add-gears.css" rel="stylesheet">
 </head>
+
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -27,28 +32,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+            
             <a href="index.html" style="float:left;padding: 0 10px;"><img class="img-responsive" src="logo.png"></a>
             <a class="navbar-brand" href="index.html">AddGears</a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
+        
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="download.html">Download</a></li>
-                <li><a href="features.html">Features</a></li>
+                <li><a href="http://localhost:1895">Documentation</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="terms.html">Terms</a></li>
                 <li><a href="contacts.html">Contact</a></li>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
+        
     </div>
-    <!-- /.container -->
+    
 </nav>
 
-
-<!--header-->
 
     <div class="container">
         <div class="row">
@@ -62,57 +65,9 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <p>Our regular users are encouraged to use <a href="https://trello.com/b/PA28cFuT/gears">Trello discussion board</a> to report issues, discuss and shear ideas or to propose new
-                            feature. Thank you for your interest in AddGears.</p>
-                    </div>
-                </div>
-
-                <form role="form" id="contact-form">
-                    <div id="message-error" class="alert alert-danger fade">
-                        <a href="#" class="close">&times;</a>
-                        <strong>Error!</strong> A problem has been occurred while submitting your data.
-                    </div>
-                    <div id="message-success" class="alert alert-success fade hide">
-                        <a href="#" class="close">&times;</a>
-                        <strong>Success!</strong> Your message has been sent successfully.
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputName">Name</label>
-                        <input class="form-control" id="inputName" placeholder="Your name" name="name" data-validation-engine="validate[required]" >
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail">Email address</label>
-                        <input class="form-control" id="inputEmail" data-validation-engine="validate[required,custom[email]]" placeholder="Enter email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="selectSubject">Subject</label>
-                        <select id="selectSubject" class="form-control" name="subject"  data-validation-engine="validate[required]">
-                            <option>customization, development and enterprise support request</option>
-                            <option>bug report</option>
-                            <option>feature request</option>
-                            <option>payment</option>
-                            <option>other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputMessage">Message</label>
-                        <textarea class="form-control" id="inputMessage" rows="5" placeholder="Your message" name="message" data-validation-engine="validate[required]"></textarea>
-                    </div>
-                    <a class="btn btn-default has-spinner" href="#">
-                        <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span>
-                        Submit
-                    </a>
-                </form>
-            </div>
-            <div class="col-lg-4">
-                <h2 class="page-header">Email</h2>
-                <div class="row">
-                    <div class="col-lg-4">support:</div>
-                    <div class="col-lg-8">
+            <div class="col-lg-12">
+                <p>For bugs, additional support and enterprise package, please contact us using email
+                    <i>
                         <script language=javascript>
                             <!--
                             var email = "fishbones2b";
@@ -121,36 +76,19 @@
                             document.write("<a href=" + "mail" + "to:" + email + "&#64;" + emailHost+ ">" + contact + "</a>")
                             //-->
                         </script>
-                    </div>
-                </div>
+                    </i>
+                </p>
+                <p>Our support aims to respond within 24 hours. Thank you for your patience.</p>
             </div>
         </div>
     </div>
 
-    <div class="container">
 
-        <hr>
+<script src="js/modern-business.js"></script>
 
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Fishbones Ltd 2013</p>
-                </div>
-            </div>
-        </footer>
 
-    </div>
-    <!-- /.container -->
-
-    <!-- JavaScript -->
-    <script src="js/latest-jquery.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/modern-business.js"></script>
-
-<link rel="stylesheet" href="css/validationEngine.jquery.css" type="text/css"/>
-<script src="./js/jquery.validationEngine-en.js"></script>
-<script src="./js/jquery.validationEngine.js"></script>
-<script src="./js/contact.js"></script>
 </body>
 
 </html>
+
+

@@ -1,0 +1,25 @@
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  padding-top: 50px;
+ /* body padding for fixed top nav */
+}
+
+
+hr.spacer-10 {
+    border: 0;
+    clear: both;
+    height:10px;
+    margin:0;
+}
+
+.carousel-indicators li{
+border-color: #3CD8DF;
+}
+.carousel-indicators li.active{
+    background-color: #3CD8DF;
+}
