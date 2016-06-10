@@ -37,8 +37,8 @@
         var period = root.find("[name=period]")
         if (period.is("select")){
             var periodAmount = period.val().split(";");
-            options.period = periodAmount[0];
-            options.amount = periodAmount[1];
+            options.period = parseInt(periodAmount[0]);
+            options.amount = parseInt(periodAmount[1]);
             var units = root.filter("[data-units]").attr("data-units") || "month(s)";
             description += " (" + options.amount + "$)"
             description += ' for ' + periodAmount[0] + ' ' + units;
@@ -75,6 +75,7 @@
         }
 
         if (parameters['test']) {
+            business = "fishbones2b-facilitator@gmail.com";
             data.env = { value: "sandbox" };
         }
 
