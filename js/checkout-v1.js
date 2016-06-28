@@ -14,8 +14,11 @@
     }
 
     var parameters = pageParameters();
-    var plan = parameters['plan'];
-    var root, form;
+
+    var planSelector = $("#plan");
+    var root, form = $('form');
+
+    planSelector.on("change", selectPlan);
 
     function selectedOptions(root){
         var description = root.find("[data-service]").text()
@@ -28,10 +31,9 @@
             description += " (" + options.amount + "$)"
         }
 
-        var name = root.find("[name=email]")
-        if (name.is("input")){
-            options.name= name.val();
-        }
+        var name = Cookies.get("email");
+
+        options.name= name;
 
         var period = root.find("[name=period]")
         if (period.is("select")){
@@ -55,7 +57,7 @@
             period: options.period,
             amount: options.amount,
             name: options.name,
-            plan: plan
+            plan: planSelector.val()
         };
 
         if (parameters['test']) {
@@ -94,9 +96,6 @@
     }
 
     function showCheckout(){
-        if (!form.valid()){
-            return ;
-        }
         createButton();
         $("[data-selection]").addClass("hidden").removeClass("animated slideInLeft")
         $("[data-checkout]").removeClass("hidden").addClass("animated slideInLeft")
@@ -125,26 +124,22 @@
         }
     };
 
+    var plans = $('[data-plan]'), oldPlan;
+    plans.filter(".hidden").remove().removeClass('hidden');
+
+    function selectPlan(){
+        var plan = planSelector.val();
+        if (oldPlan){
+            plans.filter('[data-plan]').remove();
+        }
+        root = plans.filter('[data-plan=' + plan + ']');
+        root.prependTo(form)
+
+        oldPlan = plan;
+    }
+
     $(function () {
-        var plans = $('[data-plan]')
-        root = plans.filter('[data-plan=' + plan + ']')
-
-        root.removeClass('hidden');
-        form = root.closest('form');
-        plans.filter(".hidden").remove();
-
-        form.validate($.extend({
-            rules: {
-                amount: {
-                    required: true,
-                    min: 5
-                },
-                email:{
-                    required: true,
-                    email: true
-                }
-            }
-        }, BootstrapFormValidation));
+        selectPlan();
 
         $('[name=confirm]').click(allowNext);
         $('[data-next]').click(showCheckout);

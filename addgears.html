@@ -7,7 +7,7 @@
     <meta name="description" content="pricer application">
     <meta name="author" content="sky">
 
-    <title>AddGears. Micro-services platform.</title>
+    <title>AddGears. Configurable micro-services.</title>
 
     <script src="https://use.fontawesome.com/818d94916d.js"></script>
 
@@ -55,16 +55,16 @@
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.3.0/styles/default.min.css">
 <div class="section"><div class="container">
-<h1>AddGears: a configurable way to combine existing technologies</h1>
+<h1>Current state of IT technologies</h1>
 
 <p>Today when on-line presence is the must for every business, there is a
 demand for tools which could help develop web applications quickly and efficiently.
-Too often you don&rsquo;t have time/budget for full scale application development and at the
-same time need to find new creative ways to present your unique services and expertise
+Too often business doesn&rsquo;t have time/budget for full scale application development and at the
+same time needs to find new creative ways to present unique services and expertise
 to all potential customers world wide.</p>
 
-<p>Such high expectations look natural when you recall how quickly IT industry is currently evolving.
-Indeed only two decades ago someone
+<p>Sounds contradictory? Then recall how quickly IT industry have been recently evolving.
+Only two decades ago someone
 had to have intimate knowledge of Visual C++ and Microsoft Visual Studio to develop
 any useful application. Then
 came HTML, PHP, MySQL, etc, and people found simpler, more declarative ways
@@ -73,71 +73,115 @@ to deliver useful functionality - web applications.</p>
 <p>It looks like today technology landscape is also changing. We don&rsquo;t
 need to put so much effort to generate static HTML markup anymore. Web standards are
 quickly improving - you just need to modify CSS files to change your web page visual
-appearance. Instead of purely static pages we easily create pretty complex web
-applications consuming, when requested by user, data from numerous HTTP endpoints.
-Mobile and desktop applications become as easy to develop as web sites (and often developed
+appearance. Purely static pages give the way to pretty complex web
+applications consuming data from various HTTP endpoints.
+Mobile and desktop applications become as easy to develop as web sites (often developed
 using same HTML5 technologies). On the server side landscape is drastically changing
-too. It looks like modern SQL databases became so mature, that can do practically
+too. For example modern SQL databases became so mature, that can do practically
 anything - from full
-text search to parsing XML. And it takes only a few lines of code in modern programming
+text search to complex math in stored procedures. And it takes only a few lines of code in modern programming
 languages to create a simple HTML server.</p>
 
 <p>With so many mature general
-purpose tools and system libraries available (again think of SQL and NoSQL databases, web servers, messaging
-middleware, etc) one must be able to create powerful applications, just creatively
-combining existing well tested software products. And this is true, the only problem really is that combining
-different technologies sometimes is a lot of work. Modern dynamic languages are much
-easier to write then C++, but still, for complex application you need to write
-a lot of code. The building blocks these languages provide are too elementary: this gives
-you a lot of flexibility at the expense of increasing complexity. Often to much flexibility
+purpose tools and system libraries available (SQL and NoSQL databases, web servers, messaging
+middleware, etc) it must be possible to create powerful applications, just creatively
+combining existing well tested software products. And while it is true, there is a catch:
+combining different technologies sometimes is a lot of work too. Modern dynamic languages are much
+easier to write then old C++, but for complex applications you  still need to write
+a lot of code. The building blocks  provide programming languages are too elementary: this gives
+you a lot of flexibility at the expense of increased complexity. Too much flexibility
 which you don&rsquo;t really need.</p>
 
-<p>AddGears on the other hand tries to reduce the complexity (at the expense of some flexibility)
-and lower the barrier of expertise necessary to combine different technologies
-to create applications. For this it provides building &ldquo;Lego&rdquo; blocks which everyone with
-some technical knowledge would be able to reuse to quickly implement modern application.
-In particular, we try to make it possible
-to leverage just existing SQL skills to develop useful application. No need to learn new
-technologies or hire new specialists, when you just need to query or persist some data
-upon the user request. Today just a tech savvy guy with a basic
-knowledge of SQL and web technologies may enjoy
-developing functional web applications.</p>
+<h1>AddGears: a configurable way to combine existing technologies</h1>
 
-<p>In practical terms AddGears seeks to solve common development problems
-wrapping them in distinct, readily accessible and configurable units. To this end we introduce <em>components</em>
-- configurable micro services performing
-specific tasks. These components are configured through XML, to sequentially
-perform elementary tasks. And they are able to pass data to each other through the shared
-<em>namespace</em>.</p>
+<p>AddGears tries to reduce the complexity and lower the barrier of expertise necessary
+to combine different technologies
+when creating web applications. For this it provides building &ldquo;Lego&rdquo; blocks which everyone with
+some technical knowledge would be able to reuse to quickly create web application.
+First of all we try to make it possible
+to just leverage your existing SQL skills to deliver useful functionality. No need to learn new
+technologies or hire new specialists, when you just need to serve some data
+upon user requests. Today any tech savvy guy with a basic
+knowledge of SQL and web technologies may
+develop functional web applications when backed by configurable database access:</p>
 
-<p>To combine and manage components AddGears makefiles are used. There you can define <em>targets</em>
+<pre><code class="language-xml">&lt;!--
+configure web server, serving &quot;static&quot; directory and API endpoint
+returning list of books from database table
+--&gt;
+&lt;web-server address=&quot;http://localhost:8000&quot;&gt;
+    &lt;directory path=&quot;/public/&quot; directory=&quot;static&quot; strip-prefix=&quot;/public/&quot;/&gt;
+    &lt;endpoint path=&quot;/api/public&quot;&gt;
+        &lt;http-handler action=&quot;data.type&quot;&gt;
+            &lt;request form-value=&quot;data&quot; to=&quot;data&quot; type=&quot;json&quot;/&gt;
+            &lt;response path=&quot;reply&quot;/&gt;
+            &lt;action type=&quot;books&quot;&gt;
+                &lt;db driver=&quot;mysql&quot; dataSource=&quot;root:root@/test&quot;/&gt;                
+                &lt;select sql=&quot;select isbn, price from books&quot; to=&quot;reply.books&quot;&gt;
+                    &lt;fields&gt;
+                        &lt;field name=&quot;isbn&quot; type=&quot;string&quot;/&gt;
+                        &lt;field name=&quot;price&quot; type=&quot;float&quot;/&gt;
+                    &lt;/fields&gt;
+                &lt;/select&gt;
+            &lt;/action&gt;
+        &lt;/http-handler&gt;
+    &lt;/endpoint&gt;
+&lt;/web-server&gt;
+</code></pre>
+
+<p>AddGears seeks to solve common development problems
+wrapping functionality in distinct, configurable units or <em>components</em>. Components
+are configured through XML, and, when executed sequentially,
+ are able to pass data through the shared <em>namespace</em> (some attributes accept namespace
+paths).</p>
+
+<p>To combine and manage components AddGears uses YAML makefiles. There you can define <em>targets</em>
 which could be invoked individually or jointly - to perform complex, compound actions.
 To make the whole
 system even more flexible, configuration files are treated as Go language
 templates, so that they may contain parameters, may include other configuration files, etc.</p>
 
-<p>AddGears comes with components wrapping common every day tasks: SQL, file operations,
-HTTP server, user authentication. There are control statements components and even
-components which execute scripts written in
-built in scripting
-language, which allows users to combine other components and there results
-practically in any imaginable way.</p>
+<pre><code class="language-yaml">select:
+    params:
+        database: test
+    run: select-books.xml
+    config: configuration/*.xml
 
-<p>All AddGears components and there attributes are documented. In addition AddGears comes with
-examples and step by step tutorials. These (based on examples) tutorials show how using AddGears
-someone may solve practical everyday problems: create HTTP API
+save:
+    params:
+        file: books.csv
+    run: save-csv.xml
+    config: configuration/*.xml
+
+export:
+    - select
+    - save
+</code></pre>
+
+<p>AddGears comes with components wrapping common every day tasks: SQL, file operations,
+HTTP server, user authentication, control statements and even
+components executing scripts written in built-in scripting
+language (which closely follows Go language syntax). These all gives user power and flexibility
+to combine components to solve real world problems.</p>
+
+<h1>Where to go next</h1>
+
+<p>All AddGears components and there attributes are <a href="http://docs.addgears.com/docs/api.html">documented</a>.
+In addition AddGears comes with
+examples and step by step <a href="http://docs.addgears.com/getting-started.html">tutorial</a>.
+This tutorial shows how to solve practical everyday problems: create HTTP API
 endpoints, authenticate users, store and retrieve
 data from MySQL tables, etc.</p>
 
-<p>Vanilla AddGears application comes with only core, essential components. Our AddPricer
+<p>Vanilla AddGears application comes with only core, essential components. Our <a href="http://pricer.addgears.com/">AddPricer</a>
 application builds on top of these core components, adding components for data-mining
 and web scraping (making repricing a breeze).</p>
 
-<p>Unlike many similar tools, AddGears is not bound to any server or cloud platform. You
-can download and use it on premises, along with practically any technology stack.
-Or we can install, support and develop AddGears based applications for you.</p>
-
-<p><a href="installation.html">Installation</a></p>
+<p>Unlike many similar tools, AddGears is not bound to any server or cloud platform. It
+could be <a href="http://addgears.com/download.html">downloaded</a><br />
+and used it on premises (see also <a href="installation.html">installation</a> instructions),
+along with practically any technology stack.
+Or we can <a href="http://addgears.com/pricing.html">install, support and develop</a> AddGears based applications for you.</p>
 
 </div></div>
 <script src="//cdn.jsdelivr.net/highlight.js/9.3.0/highlight.min.js"></script>
